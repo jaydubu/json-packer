@@ -2,13 +2,13 @@ import { compress, decompress } from '../json-packer';
 
 test('compress and decompress object', () => {
   const orig = {
+    aLongPropertyNameA: { longPropertyNameB: 123, longPropertyNameC: 'abc' },
     arrayA: [
       { longPropertyNameD: 123, longPropertyNameE: 'xyz' },
       { longPropertyNameE: 'asdf' },
       { longPropertyNameE: 'query', longPropertyNameF: true },
     ],
     arrayB: [1, 2, 3],
-    longPropertyNameA: { longPropertyNameB: 123, longPropertyNameC: 'abc' },
   };
 
   const compressed = compress(orig);
@@ -19,7 +19,7 @@ test('compress and decompress object', () => {
       l: [1, 2, 3],
     },
     keys: {
-      a: 'longPropertyNameA',
+      a: 'aLongPropertyNameA',
       b: 'longPropertyNameB',
       c: 'longPropertyNameC',
       d: 'abc',
