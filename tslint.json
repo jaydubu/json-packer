@@ -1,0 +1,11 @@
+{
+  "extends": [
+    "tslint:recommended",
+    "tslint-config-standard",
+    "tslint-etc",
+    "tslint-react",
+    "tslint-config-prettier"
+  ],
+  "rules": {
+  }
+}
