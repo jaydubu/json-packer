@@ -1,6 +1,6 @@
-import { compress, decompress } from '../json-packer';
+import { pack, unpack } from '../json-packer';
 
-test('compress and decompress object', () => {
+test('pack and unpack object', () => {
   const orig = {
     aLongPropertyNameA: { longPropertyNameB: 123, longPropertyNameC: 'abc' },
     arrayA: [
@@ -11,7 +11,7 @@ test('compress and decompress object', () => {
     arrayB: [1, 2, 3],
   };
 
-  const compressed = compress(orig);
+  const compressed = pack(orig);
   expect(compressed).toEqual({
     data: {
       a: { b: 123, c: 'd' },
@@ -34,11 +34,11 @@ test('compress and decompress object', () => {
     },
   });
 
-  const decompressed = decompress(compressed);
+  const decompressed = unpack(compressed);
   expect(decompressed).toEqual(orig);
 });
 
-test('compress and decompress array', () => {
+test('pack and unpack array', () => {
   const orig = [
     {
       longPropertyNameA: 'abcdefg',
@@ -73,7 +73,7 @@ test('compress and decompress array', () => {
     },
   ];
 
-  const compressed = compress(orig);
+  const compressed = pack(orig);
   expect(compressed).toEqual({
     data: [
       { a: 'b', c: true, d: 1234, e: 'f' },
@@ -96,6 +96,6 @@ test('compress and decompress array', () => {
     },
   });
 
-  const decompressed = decompress(compressed);
+  const decompressed = unpack(compressed);
   expect(decompressed).toEqual(orig);
 });
