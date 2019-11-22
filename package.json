@@ -1,6 +1,6 @@
 {
   "name": "json-packer",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Convert JSON data into more compact format",
   "keywords": [
     "json",
